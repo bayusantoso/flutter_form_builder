@@ -297,7 +297,7 @@ class MyHomePage extends StatelessWidget {
         child: FormBuilder(
           context,
           // autovalidate: true,
-          readonly: true,
+          // readonly: true,
           showResetButton: true,
           // resetButtonContent: Text("Clear Form"),
           controls: [
