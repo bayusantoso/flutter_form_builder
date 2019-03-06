@@ -54,6 +54,7 @@ class FormBuilder extends StatefulWidget {
 class _FormBuilderState extends State<FormBuilder> {
   final List<FormBuilderInput> formControls;
   final _formKey = GlobalKey<FormState>();
+  final _scrollController = ScrollController();
   Map<String, dynamic> formData = {};
 
   _FormBuilderState(this.formControls);
@@ -72,6 +73,7 @@ class _FormBuilderState extends State<FormBuilder> {
       onWillPop: widget.onWillPop,
       autovalidate: widget.autovalidate,
       child: SingleChildScrollView(
+        controller: _scrollController,
         child: Column(
           children: formControlsToForm(),
         ),
@@ -744,8 +746,9 @@ class _FormBuilderState extends State<FormBuilder> {
                 if (_formKey.currentState.validate()) {
                   widget.onSubmit(formData);
                 } else {
-                  debugPrint("Validation failed");
+                  // _scrollController.animateTo(offset, duration: null, curve: null)
                   widget.onSubmit(null);
+                  debugPrint("Validation failed");
                 }
               },
               child: widget.submitButtonContent ?? Text('Submit'),
