@@ -376,18 +376,18 @@ class MyHomePage extends StatelessWidget {
                 );
               },
             ),
-            FormBuilderInput.textField(
+            FormBuilderTextField(
               type: FormBuilderInput.TYPE_TEXT,
               attribute: "name",
               label: "Name",
               value: "John Doe",
               require: true,
-              readonly: true,
+              // readonly: false,
               min: 3,
             ),
             FormBuilderInput.dropdown(
               attribute: "dropdown",
-              require: true,
+              // readonly: false,
               label: "Dropdown",
               hint: "Select Option",
               options: [
@@ -428,7 +428,7 @@ class MyHomePage extends StatelessWidget {
             ),
             FormBuilderInput.datePicker(
                 label: "Date of Birth",
-                readonly: true,
+                // readonly: true,
                 attribute: "dob",
                 firstDate: DateTime(1970),
                 lastDate: DateTime.now().add(Duration(days: 1)),

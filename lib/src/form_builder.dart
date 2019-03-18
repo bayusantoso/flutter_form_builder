@@ -5,10 +5,31 @@ import './form_builder_input.dart';
 
 //TODO: Refactor this spaghetti code
 class FormBuilder extends StatefulWidget {
+  static const String TYPE_TEXT = "Text";
+  static const String TYPE_NUMBER = "Number";
+  static const String TYPE_EMAIL = "Email";
+  static const String TYPE_MULTILINE_TEXT = "MultilineText";
+  static const String TYPE_PASSWORD = "Password";
+  static const String TYPE_RADIO = "Radio";
+  static const String TYPE_CHECKBOX_LIST = "CheckboxList";
+  static const String TYPE_CHECKBOX = "Checkbox";
+  static const String TYPE_SWITCH = "Switch";
+  static const String TYPE_SLIDER = "Slider";
+  static const String TYPE_DROPDOWN = "Dropdown";
+  static const String TYPE_DATE_PICKER = "DatePicker";
+  static const String TYPE_TIME_PICKER = "TimePicker";
+  static const String TYPE_URL = "Url";
+  static const String TYPE_TYPE_AHEAD = "TypeAhead";
+  static const String TYPE_PHONE = "Phone";
+  static const String TYPE_STEPPER = "Stepper";
+  static const String TYPE_RATE = "Rate";
+  static const String TYPE_SEGMENTED_CONTROL = "SegmentedControl";
+  static const String TYPE_CHIPS_INPUT = "ChipsInput";
+
   final BuildContext context;
   final Function(Map<String, dynamic>) onChanged;
   final WillPopCallback onWillPop;
-  final List<FormBuilderInput> controls;
+  final List<Widget> controls;
   final Function onSubmit;
   final bool autovalidate;
   final bool showResetButton;
@@ -31,10 +52,10 @@ class FormBuilder extends StatefulWidget {
     this.resetButtonContent,
   }) : assert(resetButtonContent == null || showResetButton);
 
-  // assert(duplicateAttributes(controls).length == 0, "Duplicate attribute names not allowed");
+  /*assert(duplicateAttributes(controls).length == 0, "Duplicate attribute names not allowed");
 
   //TODO: Find way to assert no duplicates in control attributes
-  /*Function duplicateAttributes = (List<FormBuilderInput> controls) {
+  Function duplicateAttributes = (List<FormBuilderInput> controls) {
     List<String> attributeList = [];
     controls.forEach((c) {
       attributeList.add(c.attribute);
