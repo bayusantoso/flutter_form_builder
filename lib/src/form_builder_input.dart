@@ -4,10 +4,6 @@ import 'package:flutter_typeahead/flutter_typeahead.dart';
 
 import './form_builder_input_option.dart';
 
-//TODO: Consider adding RangeSlider - https://pub.dartlang.org/packages/flutter_range_slider
-//TODO: Consider adding ColorPicker - https://pub.dartlang.org/packages/flutter_colorpicker
-//TODO: Consider adding masked_text - https://pub.dartlang.org/packages/code_input#-readme-tab- (Not Important)
-//TODO: Consider adding code_input - https://pub.dartlang.org/packages/flutter_masked_text#-changelog-tab- (Not Important)
 //TODO: Add autovalidate attribute type
 class FormBuilderInput {
   static const String TYPE_TEXT = "Text";
@@ -31,6 +27,7 @@ class FormBuilderInput {
   static const String TYPE_RATE = "Rate";
   static const String TYPE_SEGMENTED_CONTROL = "SegmentedControl";
   static const String TYPE_CHIPS_INPUT = "ChipsInput";
+  static const String TYPE_MAP = "MapInput";
 
   String label;
   String attribute;
@@ -84,9 +81,21 @@ class FormBuilderInput {
     this.validator,
     this.min,
     this.max,
-    //TODO: Include maxLines for multiline text
+    //FIXME: Include maxLines for multiline text
   })  : assert(min == null || min is int),
         assert(max == null || max is int);
+
+  FormBuilderInput.map({
+    @required this.label,
+    @required this.attribute,
+    this.readonly = false,
+    this.hint,
+    this.value,
+    this.require = false,
+    this.validator,
+  }) {
+    type = FormBuilderInput.TYPE_MAP;
+  }
 
   FormBuilderInput.password({
     @required this.label,

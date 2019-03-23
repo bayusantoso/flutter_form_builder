@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_chips_input/flutter_chips_input.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:intl/intl.dart';
+import 'package:rapido/rapido.dart';
 import 'package:sy_flutter_widgets/sy_flutter_widgets.dart';
 
 import './form_builder_input.dart';
@@ -339,16 +340,21 @@ class _FormBuilderState extends State<FormBuilder> {
                     return formControl.validator(value);
                 },
                 onSaved: (value) => formData[formControl.attribute] = value,
-                getImmediateSuggestions: formControl.getImmediateSuggestions ?? false,
+                getImmediateSuggestions:
+                    formControl.getImmediateSuggestions ?? false,
                 errorBuilder: formControl.errorBuilder,
                 noItemsFoundBuilder: formControl.noItemsFoundBuilder,
                 loadingBuilder: formControl.loadingBuilder,
-                debounceDuration: formControl.debounceDuration ?? const Duration(milliseconds: 300),
-                suggestionsBoxDecoration: formControl.suggestionsBoxDecoration ?? const SuggestionsBoxDecoration(),
+                debounceDuration: formControl.debounceDuration ??
+                    const Duration(milliseconds: 300),
+                suggestionsBoxDecoration:
+                    formControl.suggestionsBoxDecoration ??
+                        const SuggestionsBoxDecoration(),
                 suggestionsBoxVerticalOffset:
-                    formControl.suggestionsBoxVerticalOffset ??  5.0,
+                    formControl.suggestionsBoxVerticalOffset ?? 5.0,
                 // transitionBuilder: formControl.transitionBuilder,
-                animationDuration: formControl.animationDuration ?? const Duration(milliseconds: 500),
+                animationDuration: formControl.animationDuration ??
+                    const Duration(milliseconds: 500),
                 animationStart: formControl.animationStart ?? 0.25,
                 direction: formControl.direction ?? AxisDirection.down,
                 hideOnLoading: formControl.hideOnLoading ?? false,
@@ -356,7 +362,8 @@ class _FormBuilderState extends State<FormBuilder> {
                 hideOnError: formControl.hideOnError ?? false,
                 hideSuggestionsOnKeyboardHide:
                     formControl.hideSuggestionsOnKeyboardHide ?? true,
-                keepSuggestionsOnLoading: formControl.keepSuggestionsOnLoading ?? true,
+                keepSuggestionsOnLoading:
+                    formControl.keepSuggestionsOnLoading ?? true,
               );
               break;
 
@@ -829,6 +836,7 @@ class _FormBuilderState extends State<FormBuilder> {
                     );
                   });
               break;
+
             case FormBuilderInput.TYPE_CHIPS_INPUT:
               return SizedBox(
                 // height: 200.0,
@@ -863,6 +871,18 @@ class _FormBuilderState extends State<FormBuilder> {
                       chipBuilder: formControl.chipBuilder,
                       suggestionBuilder: formControl.suggestionBuilder,
                     );
+                  },
+                ),
+              );
+              break;
+
+            case FormBuilderInput.TYPE_MAP:
+              return Container(
+                height: 500,
+                child: MapPointPicker(
+                  initialValue: {"longitude": 36.8219, "latitude": -1.2921},
+                  onLocationChanged: (Map<String, double> loc) {
+                    print(loc);
                   },
                 ),
               );

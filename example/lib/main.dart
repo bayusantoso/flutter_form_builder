@@ -310,6 +310,12 @@ class MyHomePageState extends State<MyHomePage> {
           showResetButton: true,
           // resetButtonContent: Text("Clear Form"),
           controls: [
+            FormBuilderInput.map(
+              attribute: "map",
+              require: true,
+              label: "Place",
+              hint: "Select Option",
+            ),
             FormBuilderInput.typeAhead(
               label: 'Country',
               attribute: 'country',
