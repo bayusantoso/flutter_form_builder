@@ -54,9 +54,12 @@ class MyHomePageState extends State<MyHomePage> {
                 // readonly: true,
                 child: Column(
                   children: <Widget>[
-                    FormBuilderImageField(
+                    FormBuilderImagePicker(
                       attribute: "images",
-                      decoration: InputDecoration(labelText: "Name"),
+                      decoration: InputDecoration(labelText: "Images"),
+                      maxImages: 5,
+                      validators: [FormBuilderValidators.required(errorText: "Images Required"),],
+                      onChanged: (data) => print(data),
                     ),
                     FormBuilderCustomField(
                       attribute: "name",

@@ -19,6 +19,7 @@ dependencies:
   # signature: ^2.0.0 - Doesn't implement onChanged, submitted PR. Meanwhile using local clone with onChanged
   validators: ^2.0.0
   image_picker: ^0.5.3+1
+  multi_image_picker: ^4.2.0
 
 dev_dependencies:
   flutter_test:
