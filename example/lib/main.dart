@@ -48,7 +48,7 @@ class MyHomePageState extends State<MyHomePage> {
           child: Column(
             children: <Widget>[
               FormBuilder(
-                context,
+                // context,
                 key: _fbKey,
                 autovalidate: true,
                 // readonly: true,
@@ -175,6 +175,7 @@ class MyHomePageState extends State<MyHomePage> {
                       attribute: 'accept_terms',
                       initialValue: false,
                       onChanged: _onChanged,
+                      leadingInput: true,
                       label: Text(
                           "I have read and agree to the terms and conditions"),
                       validators: [
@@ -240,6 +241,7 @@ class MyHomePageState extends State<MyHomePage> {
                       decoration:
                           InputDecoration(labelText: 'My chosen language'),
                       attribute: "best_language",
+                      leadingInput: true,
                       onChanged: _onChanged,
                       validators: [FormBuilderValidators.required()],
                       options: [
@@ -274,8 +276,10 @@ class MyHomePageState extends State<MyHomePage> {
                       initialValue: 10,
                       step: 1,
                       validators: [
-                        (val){
-                          if(!_fbKey.currentState.fields["accept_terms_switch"].currentState.value && val >= 10){
+                        (val) {
+                          if (!_fbKey.currentState.fields["accept_terms_switch"]
+                                  .currentState.value &&
+                              val >= 10) {
                             return "You can only put more than 10 if you've accepted terms";
                           }
                         }
@@ -294,6 +298,7 @@ class MyHomePageState extends State<MyHomePage> {
                           labelText: "The language of my people"),
                       attribute: "languages",
                       initialValue: ["Dart"],
+                      leadingInput: true,
                       options: [
                         FormBuilderFieldOption(value: "Dart"),
                         FormBuilderFieldOption(value: "Kotlin"),
