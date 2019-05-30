@@ -204,7 +204,7 @@ class MyHomePageState extends State<MyHomePage> {
                         FormBuilderValidators.max(70),
                       ],
                     ),
-                    FormBuilderTypeAhead(
+                    /*FormBuilderTypeAhead(
                       // initialValue: "Canada",
                       decoration: InputDecoration(labelText: "Country"),
                       attribute: 'country',
@@ -231,7 +231,7 @@ class MyHomePageState extends State<MyHomePage> {
                           return allCountries;
                         }
                       },
-                    ),
+                    ),*/
                     FormBuilderRadio(
                       decoration:
                           InputDecoration(labelText: 'My chosen language'),
