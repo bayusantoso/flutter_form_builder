@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 
+enum CheckboxListOrientation { horizontal, vertical }
+
 class FormBuilderCheckboxList extends StatefulWidget {
   final String attribute;
+  final CheckboxListOrientation orientation;
   final List<FormFieldValidator> validators;
   final dynamic initialValue;
   final bool readonly;
@@ -17,6 +20,7 @@ class FormBuilderCheckboxList extends StatefulWidget {
   FormBuilderCheckboxList({
     @required this.attribute,
     @required this.options,
+    this.orientation = CheckboxListOrientation.vertical,
     this.initialValue = const [],
     this.validators = const [],
     this.readonly = false,
@@ -135,9 +139,13 @@ class _FormBuilderCheckboxListState extends State<FormBuilderCheckboxList> {
               contentPadding: EdgeInsets.only(top: 10.0, bottom: 0.0),
               border: InputBorder.none,
             ),
-            child: Column(
-              children: checkboxList,
-            ),
+            child: widget.orientation == CheckboxListOrientation.horizontal
+                ? Row(
+                    children: checkboxList,
+                  )
+                : Column(
+                    children: checkboxList,
+                  ),
           );
         });
   }
