@@ -104,7 +104,13 @@ class _FormBuilderCheckboxListState extends State<FormBuilderCheckboxList> {
         },
         builder: (FormFieldState<dynamic> field) {
           List<Widget> checkboxList = [];
+          List<Widget> checkboxGrid = [];
           for (int i = 0; i < widget.options.length; i++) {
+            Widget gridObj = GridTile(
+              child:
+                  Text("${widget.options[i].label ?? widget.options[i].value}"),
+            );
+            checkboxGrid.add(gridObj);
             checkboxList.addAll([
               ListTile(
                 dense: true,
@@ -141,7 +147,7 @@ class _FormBuilderCheckboxListState extends State<FormBuilderCheckboxList> {
             ),
             child: widget.orientation == CheckboxListOrientation.horizontal
                 ? Row(
-                    children: checkboxList,
+                    children: checkboxGrid,
                   )
                 : Column(
                     children: checkboxList,
