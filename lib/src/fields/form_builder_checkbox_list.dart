@@ -107,9 +107,13 @@ class _FormBuilderCheckboxListState extends State<FormBuilderCheckboxList> {
           List<Widget> checkboxGrid = [];
           for (int i = 0; i < widget.options.length; i++) {
             Widget gridObj = GridTile(
-              child:
-                  Text("${widget.options[i].label ?? widget.options[i].value}"),
-            );
+                child: new InkResponse(
+                    child: Row(
+              children: <Widget>[
+                Text("${widget.options[i].label ?? widget.options[i].value}"),
+                _trailing(field, i)
+              ],
+            )));
             checkboxGrid.add(gridObj);
             checkboxList.addAll([
               ListTile(
