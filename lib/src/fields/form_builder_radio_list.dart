@@ -146,7 +146,9 @@ class _FormBuilderRadioListState extends State<FormBuilderRadioList> {
             enabled: !_readonly,
             errorText: field.errorText,
             contentPadding: EdgeInsets.only(top: 10.0, bottom: 0.0, right: 10.0),
-            border: InputBorder.none,
+            border: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.black, width: 1.0),
+                ),
           ),
           child: widget.orientation == RadioListOrientation.horizontal
                 ? Row(
