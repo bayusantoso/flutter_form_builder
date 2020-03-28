@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_chips_input/flutter_chips_input.dart';
+//import 'package:flutter_chips_input/flutter_chips_input.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 
 class FormBuilderChipsInput<T> extends StatefulWidget {
@@ -12,18 +12,18 @@ class FormBuilderChipsInput<T> extends StatefulWidget {
   final ValueChanged onChanged;
   final ValueTransformer valueTransformer;
 
-  final ChipsInputSuggestions findSuggestions;
+  // final ChipsInputSuggestions findSuggestions;
   // final ValueChanged<List<T>> onChanged;
   final ValueChanged<T> onChipTapped;
-  final ChipsBuilder<T> chipBuilder;
-  final ChipsBuilder<T> suggestionBuilder;
+  // final ChipsBuilder<T> chipBuilder;
+  // final ChipsBuilder<T> suggestionBuilder;
   final int maxChips;
 
   FormBuilderChipsInput({
     @required this.attribute,
-    @required this.chipBuilder,
-    @required this.suggestionBuilder,
-    @required this.findSuggestions,
+    //@required this.chipBuilder,
+    //@required this.suggestionBuilder,
+    //@required this.findSuggestions,
     this.initialValue = const [],
     this.validators = const [],
     this.readonly = false,
@@ -80,7 +80,8 @@ class _FormBuilderChipsInputState extends State<FormBuilderChipsInput> {
             _formState?.setAttributeValue(widget.attribute, val);
         },
         builder: (FormFieldState<dynamic> field) {
-          return ChipsInput(
+          return Container();
+          /*return ChipsInput(
             initialValue: field.value,
             enabled: !_readonly,
             decoration: widget.decoration.copyWith(
@@ -97,7 +98,7 @@ class _FormBuilderChipsInputState extends State<FormBuilderChipsInput> {
             chipBuilder: widget.chipBuilder,
             suggestionBuilder: widget.suggestionBuilder,
             onChipTapped: widget.onChipTapped,
-          );
+          );*/
         },
       ),
     );
