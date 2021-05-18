@@ -90,7 +90,7 @@ class MyHomePageState extends State<MyHomePage> {
                         },
                       ),
                     ),
-                    FormBuilderChipsInput(
+                    /*FormBuilderChipsInput(
                       decoration: InputDecoration(labelText: "Chips"),
                       attribute: 'chips_test',
                       // readonly: true,
@@ -145,7 +145,7 @@ class MyHomePageState extends State<MyHomePage> {
                           onTap: () => state.selectSuggestion(profile),
                         );
                       },
-                    ),
+                    ),*/
                     FormBuilderDateTimePicker(
                       attribute: "date",
                       onChanged: _onChanged,
